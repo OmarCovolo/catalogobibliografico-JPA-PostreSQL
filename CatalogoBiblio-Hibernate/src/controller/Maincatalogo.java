@@ -117,7 +117,7 @@ public class Maincatalogo {
         List<Scritti> risultati = new ArrayList<>();
         try {
             EntityManager em = emf.createEntityManager();
-            Query query = em.createQuery("SELECT e FROM ElementoCatalogo e WHERE e.titolo LIKE :titolo");
+            Query query = em.createQuery("SELECT e FROM Scritti e WHERE e.titolo LIKE :titolo");
             query.setParameter("titolo", "%" + titolo + "%");
             risultati = query.getResultList();
             em.close();
