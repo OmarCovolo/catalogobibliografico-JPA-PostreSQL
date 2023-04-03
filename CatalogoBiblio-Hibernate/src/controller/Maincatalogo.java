@@ -28,10 +28,10 @@ public class Maincatalogo {
             aggiungiElementoCatalogo(em, libro);
 
          
-            rimuoviElementoCatalogo(em, "1234567890");
+            rimuoviElementoCatalogo(em, 978-88-07-88302-6l);
 
          
-            ricercaPerISBN(em, "1234567890");
+            ricercaPerISBN(em, 978-88-07-88302-6l);
             
             ricercaPerAnnoPubblicazione(em,1993l);
             
@@ -57,7 +57,7 @@ public class Maincatalogo {
         }
     }
 
-    public static void rimuoviElementoCatalogo(EntityManager em, String isbn) {
+    public static void rimuoviElementoCatalogo(EntityManager em, Long isbn) {
         try {
             em.getTransaction().begin();
             Scritti elemento = em.find(Scritti.class, isbn);
@@ -74,7 +74,7 @@ public class Maincatalogo {
         }
     }
 
-    public static void ricercaPerISBN(EntityManager em, String isbn) {
+    public static void ricercaPerISBN(EntityManager em, Long isbn) {
         try {
             Scritti elemento = em.find(Scritti.class, isbn);
             if (elemento != null) {
